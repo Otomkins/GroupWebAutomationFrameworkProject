@@ -81,12 +81,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib\DriverConfig.cs" />
+    <Compile Include="Lib\Pages\SDLogin.cs" />
     <Compile Include="Lib\Pages\SDWebsite.cs" />
     <Compile Include="Lib\Steps\Class1.cs" />
+    <Compile Include="Lib\Steps\SDLoginSteps.cs" />
     <Compile Include="Lib\Tests\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Lib\Features\SDLogin.feature" />
     <None Include="Lib\Features\SpecFlowFeature1.feature" />
     <None Include="packages.config" />
   </ItemGroup>

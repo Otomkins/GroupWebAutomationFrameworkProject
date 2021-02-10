@@ -10,10 +10,11 @@ namespace AutomatedWebTesting.Lib.Pages
     public class SDWebsite<driver> : IDisposable where driver : IWebDriver, new()
     {
         public driver SeleniumDriver { get; internal set; }
-
+        public SDLogin SDLoginPage { get; internal set; }
         public SDWebsite(int pageLoadInSecs = 10, int implicitWaitInSecs = 10)
         {
             SeleniumDriver = new SeleniumDriverConfig<driver>(pageLoadInSecs, implicitWaitInSecs).Driver;
+            SDLoginPage = new SDLogin(SeleniumDriver);
         }
 
         public void Dispose()
