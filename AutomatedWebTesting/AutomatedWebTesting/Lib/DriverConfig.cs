@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomatedWebTesting.Lib
+namespace AutomatedWebTesting
 {
     public class SeleniumDriverConfig<T> where T : IWebDriver, new()
     {
