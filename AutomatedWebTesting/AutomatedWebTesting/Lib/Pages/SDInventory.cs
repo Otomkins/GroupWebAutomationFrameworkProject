@@ -1,58 +1,74 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace AutomatedWebTesting
 {
 	public class SDInventory
 	{
-		private IWebDriver _driver;
-		private string _inventoryPageURL = "https://www.saucedemo.com/inventory.html";
+		private readonly string _inventoryPageURL = "https://www.saucedemo.com/inventory.html";
+		private readonly IWebDriver _driver;
 
-		public SDInventory(IWebDriver driver)
-		{
-			_driver = driver;
-		}
+		public SDInventory(IWebDriver driver) => _driver = driver;
 
-		private IWebElement cart => _driver.FindElement(By.Id("shopping_cart_container"));
-		private IWebElement cartItemCount => _driver.FindElement(By.ClassName("shopping_cart_badge"));
-		private IWebElement sortElement => _driver.FindElement(By.ClassName("product_sort_container"));
-		private SelectElement sortDropDown => new SelectElement(sortElement);
-		private IReadOnlyCollection<IWebElement> inventoryItems => _driver.FindElements(By.ClassName("inventory_item"));
-		private IReadOnlyCollection<IWebElement> inventoryItemsName => _driver.FindElements(By.ClassName("inventory_item_name"));
-		private IReadOnlyCollection<IWebElement> inventoryItemsPrice => _driver.FindElements(By.ClassName("inventory_item_price"));
-		private IReadOnlyCollection<IWebElement> inventoryItemsImage => _driver.FindElements(By.ClassName("inventory_item_img"));
-		private IReadOnlyCollection<IWebElement> inventoryItemsAddToCart => _driver.FindElements(By.ClassName("btn_inventory"));
+		private IReadOnlyCollection<IWebElement> InventoryItems => _driver.FindElements(By.ClassName("inventory_item"));
+
+		private IReadOnlyCollection<IWebElement> InventoryItemsName => _driver.FindElements(By.ClassName("inventory_item_name"));
+
+		private IReadOnlyCollection<IWebElement> InventoryItemsPrice => _driver.FindElements(By.ClassName("inventory_item_price"));
+
+		private IReadOnlyCollection<IWebElement> InventoryItemsImage => _driver.FindElements(By.ClassName("inventory_item_img"));
+
+		private IReadOnlyCollection<IWebElement> InventoryItemsAddToCart => _driver.FindElements(By.ClassName("btn_inventory"));
+
+		private IWebElement Cart => _driver.FindElement(By.Id("shopping_cart_container"));
+
+		private IWebElement CartItemCount => _driver.FindElement(By.ClassName("shopping_cart_badge"));
+
+		private IWebElement SortElement => _driver.FindElement(By.ClassName("product_sort_container"));
+
+		private SelectElement SortDropDown => new SelectElement(SortElement);
 
 		public void GoToInventory() => _driver.Navigate().GoToUrl(_inventoryPageURL);
-		public void GoToCheckout() => cart.Click();
-		public int GetCartCount() => int.Parse(cartItemCount.Text);
-		public IWebElement[] GetAllProducts() => inventoryItems.ToArray();
+
+		public void GoToCheckout() => Cart.Click();
+
+		public int GetCartCount() => int.Parse(CartItemCount.Text);
+
+		public IWebElement[] GetAllProducts() => InventoryItems.ToArray();
+
 		public decimal[] GetAllProductPrices()
 		{
 			List<decimal> prices = new List<decimal>();
-			foreach(IWebElement item in inventoryItemsPrice)
+			foreach(IWebElement item in InventoryItemsPrice)
 			{
 				string text = item.Text.Replace("$", "");
 				prices.Add(decimal.Parse(text));
 			}
 			return prices.ToArray();
 		}
+
 		public string[] GetAllProductNames()
 		{
 			List<string> names = new List<string>();
-			foreach(IWebElement item in inventoryItemsName)
+			foreach(IWebElement item in InventoryItemsName)
 			{
 				names.Add(item.Text);
 			}
 			return names.ToArray();
 		}
-		public decimal GetProductPrice(int num) => decimal.Parse(inventoryItemsPrice.ToArray()[num].Text);
-		public void AddProductToCart(int num) => inventoryItemsAddToCart.ToArray()[num].Click();
-		public string GetButtonState(int num) => inventoryItemsAddToCart.ToArray()[num].Text;
-		public void SetProductSortDropdown(string value) => sortDropDown.SelectByValue(value);
-		public void GoToProductPageThroughName(int num) => inventoryItemsName.ToArray()[num].Click();
-		public void GoToProductPageThroughImage(int num) => inventoryItemsImage.ToArray()[num].Click();
+
+		public decimal GetProductPrice(int num) => decimal.Parse(InventoryItemsPrice.ToArray()[num].Text);
+
+		public void AddProductToCart(int num) => InventoryItemsAddToCart.ToArray()[num].Click();
+
+		public string GetButtonState(int num) => InventoryItemsAddToCart.ToArray()[num].Text;
+
+		public void SetProductSortDropdown(string value) => SortDropDown.SelectByValue(value);
+
+		public void GoToProductPageThroughName(int num) => InventoryItemsName.ToArray()[num].Click();
+
+		public void GoToProductPageThroughImage(int num) => InventoryItemsImage.ToArray()[num].Click();
 	}
 }
