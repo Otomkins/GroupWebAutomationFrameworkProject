@@ -28,11 +28,11 @@ namespace AutomatedWebTesting
             Assert.That(SDWebsite.SDInventory.GetAllProductNames()[index], Is.EqualTo(name));
         }
 
-		[When(@"products are sorted by A-Z")]
-		public void WhenProductsAreSortedByA_Z()
-		{
-			SDWebsite.SDInventory.SetProductSortDropdown("az");
-		}
+        [When(@"products are sorted by value ""(.*)""")]
+        public void WhenProductsAreSortedByValue(string value)
+        {
+            SDWebsite.SDInventory.SetProductSortDropdown(value);
+        }
 
 		[Then(@"the cart label is equal to (.*)")]
         public void ThenTheCartLabelIsEqualTo(int cartNum)
