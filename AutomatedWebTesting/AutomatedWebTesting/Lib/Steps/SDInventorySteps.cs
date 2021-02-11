@@ -15,23 +15,35 @@ namespace AutomatedWebTesting
         {
             SDWebsite.SDInventory.GoToInventory();
         }
-        
-        [When(@"I click on the first products add to cart button")]
-        public void WhenIClickOnTheFirstProductsAddToCartButton()
+
+        [When(@"I click the product at index (.*) add to cart button")]
+        public void WhenIClickTheProductAtIndexAddToCartButton(int index)
         {
-            SDWebsite.SDInventory.AddProductToCart(0);
-        }
-        
-        [Then(@"the cart label is equal to (.*)")]
-        public void ThenTheCartLabelIsEqualTo(int p0)
-        {
-            Assert.That(SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(1));
+            SDWebsite.SDInventory.AddProductToCart(index);
         }
 
-        [Then(@"the first products add to cart button text is ""(.*)""")]
-        public void ThenTheFirstProductsAddToCartButtonTextIs(string result)
+        [Then(@"the product at index (.*) name will be ""(.*)""")]
+        public void ThenTheProductAtIndexNameWillBe(int index, string name)
         {
-            Assert.That(SDWebsite.SDInventory.GetButtonState(0), Is.EqualTo(result));
+            Assert.That(SDWebsite.SDInventory.GetAllProductNames()[index], Is.EqualTo(name));
+        }
+
+		[When(@"products are sorted by A-Z")]
+		public void WhenProductsAreSortedByA_Z()
+		{
+			SDWebsite.SDInventory.SetProductSortDropdown("az");
+		}
+
+		[Then(@"the cart label is equal to (.*)")]
+        public void ThenTheCartLabelIsEqualTo(int cartNum)
+        {
+            Assert.That(SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(cartNum));
+        }
+
+        [Then(@"the product at index (.*) add to cart button is ""(.*)""")]
+        public void ThenTheProductAtIndexAddToCartButtonIs(int index, string result)
+        {
+            Assert.That(SDWebsite.SDInventory.GetButtonState(index), Is.EqualTo(result));
         }
 
         [After]
