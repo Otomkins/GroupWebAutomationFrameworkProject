@@ -93,7 +93,7 @@ namespace AutomatedWebTesting.Lib.Features
         [NUnit.Framework.DescriptionAttribute("Removing items from the cart")]
         [NUnit.Framework.CategoryAttribute("remove")]
         [NUnit.Framework.TestCaseAttribute("0", "backpack", null)]
-        [NUnit.Framework.TestCaseAttribute("1", "bikelight", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "bikeLight", null)]
         [NUnit.Framework.TestCaseAttribute("2", "boltShirt", null)]
         [NUnit.Framework.TestCaseAttribute("3", "fleece", null)]
         [NUnit.Framework.TestCaseAttribute("4", "onesie", null)]
