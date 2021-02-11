@@ -1,22 +1,17 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace AutomatedWebTesting
 {
     public class SeleniumDriverConfig<T> where T : IWebDriver, new()
     {
-        public T Driver { get; set; }
-
         public SeleniumDriverConfig(int pageLoadInSecs, int implicitWaitInSecs)
         {
             Driver = new T();
             DriverSetup(pageLoadInSecs, implicitWaitInSecs);
         }
+
+        public T Driver { get; set; }
 
         private void DriverSetup(int pageLoadInSecs, int implicitWaitInSecs)
         {
