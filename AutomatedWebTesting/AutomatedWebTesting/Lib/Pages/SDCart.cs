@@ -52,19 +52,19 @@ namespace AutomatedWebTesting
 					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
 				case "bikeLight":
-					if (bikeLight.Displayed == false) return true;
+					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
 				case "boltShirt":
-					if (boltShirt.Displayed == false) return true;
+					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
 				case "fleece":
-					if (fleece.Displayed == false) return true;
+					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
 				case "onesie":
-					if (onesie.Displayed == false) return true;
+					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
 				case "redShirt":
-					if (redShirtRemoveButton.Displayed == false) return true;
+					if (_driver.FindElements(By.ClassName("cart_button")).ToArray().Length == 5) return true;
 					break;
             }
 			return false;

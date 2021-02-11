@@ -15,7 +15,7 @@ Scenario Outline: Removing items from the cart
 	Examples: 
 	| itemNum | itemName  |
 	| 0       | backpack  |
-	| 1       | bikelight |
+	| 1       | bikeLight |
 	| 2       | boltShirt |
 	| 3       | fleece    |
 	| 4       | onesie    |
