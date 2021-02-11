@@ -22,10 +22,10 @@ namespace AutomatedWebTesting
             SDWebsite.SDInventory.AddProductToCart(index);
         }
 
-        [Then(@"the product at index (.*) name will be ""(.*)""")]
-        public void ThenTheProductAtIndexNameWillBe(int index, string name)
+        [Then(@"the product at index (.*) name will be (.*)")]
+        public void ThenTheProductAtIndexNameWillBe(string index, string name)
         {
-            Assert.That(SDWebsite.SDInventory.GetAllProductNames()[index], Is.EqualTo(name));
+            Assert.That(SDWebsite.SDInventory.GetAllProductNames()[int.Parse(index)], Is.EqualTo(name));
         }
 
         [When(@"products are sorted by value ""(.*)""")]
@@ -34,12 +34,23 @@ namespace AutomatedWebTesting
             SDWebsite.SDInventory.SetProductSortDropdown(value);
         }
 
+        [When(@"I click the product name at index (.*)")]
+        public void WhenIClickTheProductNameAtIndex(int index)
+        {
+            SDWebsite.SDInventory.GoToProductPageThroughName(index);
+        }
+
+        [Then(@"the page url will be (.*)")]
+        public void ThenThePageUrlWillBe(string url)
+        {
+            Assert.That(SDWebsite.GetPageURL(), Is.EqualTo(url));
+        }
+
         [Then(@"the product at index (.*) price will be (.*)")]
         public void ThenTheProductAtIndexPriceWillBe(int index, Decimal price)
         {
             Assert.That(SDWebsite.SDInventory.GetAllProductPrices()[index], Is.EqualTo(price));
         }
-
 
         [Then(@"the cart label is equal to (.*)")]
         public void ThenTheCartLabelIsEqualTo(int cartNum)

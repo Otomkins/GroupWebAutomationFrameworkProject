@@ -22,6 +22,7 @@ namespace AutomatedWebTesting
 		private IReadOnlyCollection<IWebElement> inventoryItems => _driver.FindElements(By.ClassName("inventory_item"));
 		private IReadOnlyCollection<IWebElement> inventoryItemsName => _driver.FindElements(By.ClassName("inventory_item_name"));
 		private IReadOnlyCollection<IWebElement> inventoryItemsPrice => _driver.FindElements(By.ClassName("inventory_item_price"));
+		private IReadOnlyCollection<IWebElement> inventoryItemsImage => _driver.FindElements(By.ClassName("inventory_item_img"));
 		private IReadOnlyCollection<IWebElement> inventoryItemsAddToCart => _driver.FindElements(By.ClassName("btn_inventory"));
 
 		public void GoToInventory() => _driver.Navigate().GoToUrl(_inventoryPageURL);
@@ -51,5 +52,7 @@ namespace AutomatedWebTesting
 		public void AddProductToCart(int num) => inventoryItemsAddToCart.ToArray()[num].Click();
 		public string GetButtonState(int num) => inventoryItemsAddToCart.ToArray()[num].Text;
 		public void SetProductSortDropdown(string value) => sortDropDown.SelectByValue(value);
+		public void GoToProductPageThroughName(int num) => inventoryItemsName.ToArray()[num].Click();
+		public void GoToProductPageThroughImage(int num) => inventoryItemsImage.ToArray()[num].Click();
 	}
 }
