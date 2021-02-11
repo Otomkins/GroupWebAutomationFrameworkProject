@@ -84,6 +84,9 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib\DriverConfig.cs" />
@@ -101,7 +104,6 @@
     <None Include="Lib\Features\SDCart.feature" />
     <None Include="Lib\Features\SDLogin.feature" />
     <None Include="Lib\Features\SDInventory.feature" />
-    <None Include="Lib\Features\SpecFlowFeature1.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

@@ -19,6 +19,8 @@ namespace AutomatedWebTesting
             SDCart = new SDCart(SeleniumDriver);
         }
 
+        public string GetPageURL() => SeleniumDriver.Url;
+
         public void Dispose()
         {
             SeleniumDriver.Quit();
