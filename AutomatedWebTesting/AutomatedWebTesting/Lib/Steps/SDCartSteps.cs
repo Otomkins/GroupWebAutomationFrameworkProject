@@ -70,5 +70,8 @@ namespace AutomatedWebTesting.Lib.Features
             Thread.Sleep(5000);
             Assert.That(_website.SeleniumDriver.Url, Is.EqualTo($"https://www.saucedemo.com/inventory-item.html?id=" + itemId.ToString()));
         }
+
+        [After]
+        public void Cleanup() => _website.Dispose();
     }
 }

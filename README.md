@@ -1,4 +1,20 @@
-# GroupWebAutomationFrameworkProject
+# Group Web Automation Framework Project
+
+## Summary
+
+
+
+## Architecture
+
+
+
+## Login Tests
+
+
+
+## Cart Tests
+
+
 
 ## Inventory Tests
 
@@ -33,3 +49,6 @@ As a user, I want to be able to add a product to the cart, so that I can order t
 As a user, I want to be able to select a product, so that I can go to that product page and view more information.
 
 - Scenario 1: Clicking on product name takes user to product page 
+
+## 
+
