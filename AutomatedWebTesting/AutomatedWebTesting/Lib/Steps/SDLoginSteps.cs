@@ -14,9 +14,23 @@ namespace AutomatedWebTesting.Lib.Steps
         public void SetUp()
         {
             website = new SDWebsite<ChromeDriver>();
+        }
+
+        [Given(@"I am on the home page")]
+        public void GivenIAmOnTheHomePage()
+        {
             website.SeleniumDriver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
-        
+
+        [Given(@"I have not registered a user account")]
+        public void GivenIHaveNotRegisteredAUserAccount()
+        {
+            website.SDLoginPage.Username = "not_registered";
+            website.SDLoginPage.Password = "1234";
+            website.SDLoginPage.EnterUsername();
+            website.SDLoginPage.EnterPassword();
+        }
+
         [Given(@"I have a registered username (.*)")]
         public void GivenIHaveARegisteredUsername(string username)
         {
