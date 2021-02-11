@@ -87,6 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib\DriverConfig.cs" />
+    <Compile Include="Lib\Steps\SDCartSteps.cs" />
+    <Compile Include="Lib\Pages\SDCart.cs" />
     <Compile Include="Lib\Pages\SDLogin.cs" />
     <Compile Include="Lib\Pages\SDWebsite.cs" />
     <Compile Include="Lib\Steps\SDLoginSteps.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Lib\Features\SDCart.feature" />
     <None Include="Lib\Features\SDLogin.feature" />
     <None Include="Lib\Features\SDInventory.feature" />
     <None Include="Lib\Features\SpecFlowFeature1.feature" />
