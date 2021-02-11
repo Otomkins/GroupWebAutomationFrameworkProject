@@ -11,4 +11,12 @@ Scenario: Add item to cart
 Scenario: Add item to cart changes button to remove
 	Given I am on the inventory page
 	When I click on the first products add to cart button
-	Then the first products add to cart button text is REMOVE
+	Then the first products add to cart button text is "REMOVE"
+
+@Inventory
+Scenario: Pressing add to cart twice sets button state to AddToCart
+	Given I am on the inventory page
+	When I click on the first products add to cart button
+	And I click on the first products add to cart button
+	Then the first products add to cart button text is "ADD TO CART"
+

@@ -28,10 +28,10 @@ namespace AutomatedWebTesting
             Assert.That(SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(1));
         }
 
-        [Then(@"the first products add to cart button text is REMOVE")]
-        public void ThenTheFirstProductsAddToCartButtonTextIsREMOVE()
+        [Then(@"the first products add to cart button text is ""(.*)""")]
+        public void ThenTheFirstProductsAddToCartButtonTextIs(string result)
         {
-            Assert.That(SDWebsite.SDInventory.GetButtonState(0), Is.EqualTo("REMOVE"));
+            Assert.That(SDWebsite.SDInventory.GetButtonState(0), Is.EqualTo(result));
         }
 
         [After]
