@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
@@ -8,63 +7,63 @@ namespace AutomatedWebTesting
     [Binding]
     public class SDInventorySteps
     {
-        SDWebsite<ChromeDriver> SDWebsite = new SDWebsite<ChromeDriver>();
+        private readonly SDWebsite<ChromeDriver> _SDWebsite = new SDWebsite<ChromeDriver>();
 
         [Given(@"I am on the inventory page")]
         public void GivenIAmOnTheInventoryPage()
         {
-            SDWebsite.SDInventory.GoToInventory();
+            _SDWebsite.SDInventory.GoToInventory();
         }
 
         [When(@"I click the product at index (.*) add to cart button")]
         public void WhenIClickTheProductAtIndexAddToCartButton(int index)
         {
-            SDWebsite.SDInventory.AddProductToCart(index);
+            _SDWebsite.SDInventory.AddProductToCart(index);
         }
 
         [Then(@"the product at index (.*) name will be (.*)")]
         public void ThenTheProductAtIndexNameWillBe(string index, string name)
         {
-            Assert.That(SDWebsite.SDInventory.GetAllProductNames()[int.Parse(index)], Is.EqualTo(name));
+            Assert.That(_SDWebsite.SDInventory.GetAllProductNames()[int.Parse(index)], Is.EqualTo(name));
         }
 
         [When(@"products are sorted by value ""(.*)""")]
         public void WhenProductsAreSortedByValue(string value)
         {
-            SDWebsite.SDInventory.SetProductSortDropdown(value);
+            _SDWebsite.SDInventory.SetProductSortDropdown(value);
         }
 
         [When(@"I click the product name at index (.*)")]
         public void WhenIClickTheProductNameAtIndex(int index)
         {
-            SDWebsite.SDInventory.GoToProductPageThroughName(index);
+            _SDWebsite.SDInventory.GoToProductPageThroughName(index);
         }
 
         [Then(@"the page url will be (.*)")]
         public void ThenThePageUrlWillBe(string url)
         {
-            Assert.That(SDWebsite.GetPageURL(), Is.EqualTo(url));
+            Assert.That(_SDWebsite.GetPageURL(), Is.EqualTo(url));
         }
 
         [Then(@"the product at index (.*) price will be (.*)")]
-        public void ThenTheProductAtIndexPriceWillBe(int index, Decimal price)
+        public void ThenTheProductAtIndexPriceWillBe(int index, decimal price)
         {
-            Assert.That(SDWebsite.SDInventory.GetAllProductPrices()[index], Is.EqualTo(price));
+            Assert.That(_SDWebsite.SDInventory.GetAllProductPrices()[index], Is.EqualTo(price));
         }
 
         [Then(@"the cart label is equal to (.*)")]
         public void ThenTheCartLabelIsEqualTo(int cartNum)
         {
-            Assert.That(SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(cartNum));
+            Assert.That(_SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(cartNum));
         }
 
         [Then(@"the product at index (.*) add to cart button is ""(.*)""")]
         public void ThenTheProductAtIndexAddToCartButtonIs(int index, string result)
         {
-            Assert.That(SDWebsite.SDInventory.GetButtonState(index), Is.EqualTo(result));
+            Assert.That(_SDWebsite.SDInventory.GetButtonState(index), Is.EqualTo(result));
         }
 
         [After]
-        public void Cleanup() => SDWebsite.Dispose();
+        public void Cleanup() => _SDWebsite.Dispose();
     }
 }
