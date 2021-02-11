@@ -33,7 +33,8 @@ namespace AutomatedWebTesting
 			List<decimal> prices = new List<decimal>();
 			foreach(IWebElement item in inventoryItemsPrice)
 			{
-				prices.Add(decimal.Parse(item.Text));
+				string text = item.Text.Replace("$", "");
+				prices.Add(decimal.Parse(text));
 			}
 			return prices.ToArray();
 		}

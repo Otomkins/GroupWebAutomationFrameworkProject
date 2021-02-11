@@ -34,7 +34,14 @@ namespace AutomatedWebTesting
             SDWebsite.SDInventory.SetProductSortDropdown(value);
         }
 
-		[Then(@"the cart label is equal to (.*)")]
+        [Then(@"the product at index (.*) price will be (.*)")]
+        public void ThenTheProductAtIndexPriceWillBe(int index, Decimal price)
+        {
+            Assert.That(SDWebsite.SDInventory.GetAllProductPrices()[index], Is.EqualTo(price));
+        }
+
+
+        [Then(@"the cart label is equal to (.*)")]
         public void ThenTheCartLabelIsEqualTo(int cartNum)
         {
             Assert.That(SDWebsite.SDInventory.GetCartCount(), Is.EqualTo(cartNum));
