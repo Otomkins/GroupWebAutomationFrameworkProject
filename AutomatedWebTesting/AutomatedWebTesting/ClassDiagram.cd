@@ -1,2 +1,135 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutomatedWebTesting.SeleniumDriverConfig&lt;T&gt;">
+    <Position X="0.5" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAABgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lib\DriverConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatedWebTesting.SDCart">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACAAAkIAAAAADBAAAAEAEAAiACAEAABQBABCCACAACA=</HashCode>
+      <FileName>Lib\Pages\SDCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatedWebTesting.SDInventory">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAAECAEAAgSBAAMAAAAAABBAAAQEAQBoJAAACAACA=</HashCode>
+      <FileName>Lib\Pages\SDInventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatedWebTesting.SDWebsite&lt;driver&gt;" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.75" />
+    <AssociationLine Name="SDCart" Type="AutomatedWebTesting.SDCart" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="2.625" />
+        <Point X="3.063" Y="2.625" />
+        <Point X="3.063" Y="4.502" />
+        <Point X="4" Y="4.502" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SDInventory" Type="AutomatedWebTesting.SDInventory" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.25" Y="3.125" />
+        <Point X="2.771" Y="3.125" />
+        <Point X="2.771" Y="6.407" />
+        <Point X="4" Y="6.407" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAEAAAAAAAAAAACAgAAAIQAAAAAAAA=</HashCode>
+      <FileName>Lib\Pages\SDWebsite.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SDCart" />
+      <Property Name="SDInventory" />
+      <Property Name="SDLoginPage" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.158" Collapsed="true" />
+  </Class>
+  <Class Name="AutomatedWebTesting.SDInventorySteps">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_SDWebsite" Type="AutomatedWebTesting.SDWebsite&lt;driver&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="0.5" />
+        <Point X="10.5" Y="0.24" />
+        <Point X="1.25" Y="0.24" />
+        <Point X="1.25" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="1.195" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAEAQAAAAAAAAAAAEAhBEAAAgQ=</HashCode>
+      <FileName>Lib\Steps\SDInventorySteps.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_SDWebsite" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AutomatedWebTesting.Lib.Pages.SDLogin">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAABAAAQAAAAAAEAAAAAACCAAAAAAAAQA=</HashCode>
+      <FileName>Lib\Pages\SDLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutomatedWebTesting.Lib.Features.SDCartSteps">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_website" Type="AutomatedWebTesting.SDWebsite&lt;driver&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="1.188" />
+        <Point X="1.875" Y="1.188" />
+        <Point X="1.875" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.88" Y="0.112" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAAEAIAAAAAAAAoACAAAAAAAAIAIBgAAAAAAAEGAAAA=</HashCode>
+      <FileName>Lib\Steps\SDCartSteps.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_website" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AutomatedWebTesting.Lib.Steps.SDLoginSteps">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_website" Type="AutomatedWebTesting.SDWebsite&lt;driver&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="0.5" />
+        <Point X="8.75" Y="0.417" />
+        <Point X="1.562" Y="0.417" />
+        <Point X="1.562" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.848" Y="0.852" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQEAAAAFBAAAAAgAAIAABAAAAIAAAgAAAEAAEAEAAAA=</HashCode>
+      <FileName>Lib\Steps\SDLoginSteps.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_website" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

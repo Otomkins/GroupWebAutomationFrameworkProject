@@ -97,10 +97,10 @@
     <Compile Include="Lib\Steps\SDLoginSteps.cs" />
     <Compile Include="Lib\Pages\SDInventory.cs" />
     <Compile Include="Lib\Steps\SDInventorySteps.cs" />
-    <Compile Include="Lib\Tests\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Lib\Features\SDCart.feature" />
     <None Include="Lib\Features\SDLogin.feature" />
     <None Include="Lib\Features\SDInventory.feature" />
