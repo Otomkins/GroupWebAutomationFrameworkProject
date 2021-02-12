@@ -1,16 +1,11 @@
-﻿using AutomatedWebTesting.Lib.Pages;
+﻿using System;
+using AutomatedWebTesting.Lib.Pages;
 using OpenQA.Selenium;
-using System;
 
 namespace AutomatedWebTesting
 {
     public class SDWebsite<driver> : IDisposable where driver : IWebDriver, new()
     {
-        public driver SeleniumDriver { get; internal set; }
-        public SDLogin SDLoginPage { get; internal set; }
-        public SDInventory SDInventory { get; internal set; }
-        public SDCart SDCart { get; internal set; }
-
         public SDWebsite(int pageLoadInSecs = 10, int implicitWaitInSecs = 10)
         {
             SeleniumDriver = new SeleniumDriverConfig<driver>(pageLoadInSecs, implicitWaitInSecs).Driver;
@@ -19,11 +14,16 @@ namespace AutomatedWebTesting
             SDCart = new SDCart(SeleniumDriver);
         }
 
+        public driver SeleniumDriver { get; internal set; }
+
+        public SDLogin SDLoginPage { get; internal set; }
+
+        public SDInventory SDInventory { get; internal set; }
+
+        public SDCart SDCart { get; internal set; }
+
         public string GetPageURL() => SeleniumDriver.Url;
 
-        public void Dispose()
-        {
-            SeleniumDriver.Quit();
-        }
+        public void Dispose() => SeleniumDriver.Quit();
     }
 }
