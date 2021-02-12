@@ -8,6 +8,17 @@ The project specification required us to create a test framework to explore and 
 
 ![](https://github.com/Otomkins/GroupWebAutomationFrameworkProject/blob/main/ClassDiagram.PNG)
 
+## Using the framework
+
+The application is based on the Page Object Model (POM) design pattern where each page of the website is assigned to its own class. These classes hold properties which correspond to the HTML elements under test, and methods which correspond to the different ways in which we interact with these elements. These POMs can be found under the `Pages` directory of our application in which the model can be extended by creating new POMs.
+
+Newly created POMs are required to support a constructor that relies on dependency injection to create an instance of a web driver. To support this POM across the application, navigate to `SDWebsite.cs` within the `Pages` directory, create a property of the POM's type and assign this property in the constructor of `SDWebsite.cs`.
+
+Original Notes:
+1. tl;dr to use our framework you instantiate the POM SD_Website with a type of web driver.
+2. To expand on it you create a new page POM (class) for your page and add it as a property to SDWebsite and initialize it in the constructor.
+3. This gives us an object representation of the website we set out to test and makes our tests easier to manage
+
 ## Login Tests
 
 The login tests cover user authentication and the different types of users that can login to the site
