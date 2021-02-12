@@ -14,11 +14,6 @@ The application is based on the Page Object Model (POM) design pattern where eac
 
 Newly created POMs are required to support a constructor that relies on dependency injection to create an instance of a web driver. To support this POM across the application, navigate to `SDWebsite.cs` within the `Pages` directory, create a property of the POM's type and assign this property in the constructor of `SDWebsite.cs`.
 
-Original Notes:
-1. tl;dr to use our framework you instantiate the POM SD_Website with a type of web driver.
-2. To expand on it you create a new page POM (class) for your page and add it as a property to SDWebsite and initialize it in the constructor.
-3. This gives us an object representation of the website we set out to test and makes our tests easier to manage
-
 ## Login Tests
 
 The login tests cover user authentication and the different types of users that can login to the site
