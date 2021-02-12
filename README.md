@@ -2,8 +2,6 @@
 
 ## Summary
 
-The project specification required us to create a testing framework to explore and test [Swag Labs](https://www.saucedemo.com/), a website created specifically for practising automation coding. Using exploratory testing to learn about the system under test (SUT), we identified the pages that we could test, the different ways in which they could be tested, and discussed any defects that we had discovered. All of these observations were transferred to our project board where we then fleshed them out into appropriate user stories, scenarios, and issues in preparation for building our framework. We then utilised the Selenium and SpecFlow tools to form automated tests in Gherkin to test the website.
-
 The project specification required us to create a test framework to explore and test. https://www.saucedemo.com/. This site was created specifically for practising automation. Using exploratory testing, we identified the pages that we could test, how we could test them in different ways and noted defects that we discovered along the way. We then used Selenium and SpecFlow to create automated tests in Gherkin to test the website.
 
 ## Architecture
