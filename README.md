@@ -2,7 +2,7 @@
 
 ## Summary
 
-The project specification required us to create a test framework to explore and test. https://www.saucedemo.com/. This site was created specifically for practicing automation. Using exploratory testing, we identified the pages that we could test, how we could test them in different ways and noted defects that we discovered along the way. We then used Selenium and SpecFlow to create automated tests in Gherkin to test the website.
+The project specification required us to create a test framework to explore and test. https://www.saucedemo.com/. This site was created specifically for practising automation. Using exploratory testing, we identified the pages that we could test, how we could test them in different ways and noted defects that we discovered along the way. We then used Selenium and SpecFlow to create automated tests in Gherkin to test the website.
 
 ## Architecture
 
